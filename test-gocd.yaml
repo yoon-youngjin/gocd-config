@@ -36,15 +36,15 @@ pipelines:
                     arguments:
                       - build
                       - "-t"
-                      - "dummy:latest"
+                      - "yoon11/dummy:latest"
                       - "."
                 - exec:
                     command: /bin/bash
                     arguments:
                       - "-c"
                       - "echo $DOCKER_HUB_PASSWORD | docker login -u yoon11 --password-stdin"
-#                - exec:
-#                    command: docker
-#                    arguments:
-#                      - push
-#                      - "yourdockerhubid/your-image-name:latest"
+                - exec:
+                    command: docker
+                    arguments:
+                      - push
+                      - "yoon11/dummy:latest"
