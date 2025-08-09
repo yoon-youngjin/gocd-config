@@ -1,6 +1,6 @@
 pipelines:
   test:
-    group: testGroup
+    group: dummy
     materials:
       dummy:
         git: https://github.com/yoon-youngjin/dummy
