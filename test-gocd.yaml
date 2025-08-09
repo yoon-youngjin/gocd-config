@@ -36,14 +36,14 @@ pipelines:
                       - "-t"
                       - "dummy:latest"
                       - "."
-#                - exec:
-#                    command: docker
-#                    arguments:
-#                      - login
-#                      - "-u"
-#                      - "yourdockerhubid"
-#                      - "-p"
-#                      - "your-dockerhub-access-token"
+                - exec:
+                    command: docker
+                    arguments:
+                      - login
+                      - "-u"
+                      - "yoon11"
+                      - "-p"
+                      - "{{SECRET:[dummy-secret][DOCKER_HUB_PASSWORD]}}"
 #                - exec:
 #                    command: docker
 #                    arguments:
