@@ -3,8 +3,12 @@ pipelines:
     group: dummy
     materials:
       dummy:
-        git: https://github.com/yoon-youngjin/dummy
-        branch: main
+        plugin_configuration:
+          id: github.pr
+          version: 1.3.5
+        options:
+          url: "git@github.com:yoon-youngjin/dummy.git"
+          branch: main
     stages:
       - test:
           jobs:
