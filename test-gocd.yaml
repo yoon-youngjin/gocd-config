@@ -37,10 +37,10 @@ pipelines:
                       - "dummy:latest"
                       - "."
                 - exec:
-                    command: sh
+                    command: /bin/bash
                     arguments:
                       - "-c"
-                      - "echo \"$DOCKER_PASSWORD\" | docker login -u yoon11 --password-stdin"
+                      - "echo $DOCKER_HUB_PASSWORD | docker login -u yoon11 --password-stdin"
                     env:
                       DOCKER_PASSWORD: "{{SECRET:[dummy-secret][DOCKER_HUB_PASSWORD]}}"
 #                - exec:
