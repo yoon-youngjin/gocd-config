@@ -8,7 +8,7 @@ pipelines:
           version: 1.3.5
         options:
           url: "git@github.com:yoon-youngjin/dummy.git"
-          base_branch: "main"
+          branch: main
     stages:
       - test:
           jobs:
