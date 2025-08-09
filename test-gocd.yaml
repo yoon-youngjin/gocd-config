@@ -42,7 +42,7 @@ pipelines:
                     command: /bin/bash
                     arguments:
                       - "-c"
-                      - "echo DOCKER_HUB_PASSWORD | docker login -u yoon11 --password-stdin"
+                      - "echo $DOCKER_HUB_PASSWORD | docker login -u yoon11 --password-stdin"
 #                - exec:
 #                    command: docker
 #                    arguments:
