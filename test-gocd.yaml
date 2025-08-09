@@ -7,8 +7,8 @@ pipelines:
           id: github.pr
           version: 1.3.5
         options:
-          url: https://github.com/yoon-youngjin/dummy.git
-          branch: main
+          url: "https://github.com/yoon-youngjin/dummy.git"
+          branch: "main"
     stages:
       - test:
           jobs:
