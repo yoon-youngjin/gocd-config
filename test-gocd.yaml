@@ -1,0 +1,16 @@
+pipelines:
+  test:
+    group: default
+    materials:
+      dummy:
+        git: https://github.com/yoon-youngjin/dummy
+        branch: main
+    stages:
+      - test:
+          jobs:
+            test:
+              tasks:
+                - exec:
+                    command: ./gradlew
+                    arguments:
+                      - test
