@@ -16,6 +16,8 @@ pipelines:
                       - test
   build:
     group: dummy
+    environment_variables:
+      DOCKER_HUB_PASSWORD: "{{SECRET:[dummy-secret][DOCKER_HUB_PASSWORD]}}"
     materials:
       source:
         git: https://github.com/yoon-youngjin/dummy
@@ -40,9 +42,7 @@ pipelines:
                     command: /bin/bash
                     arguments:
                       - "-c"
-                      - "echo $DOCKER_HUB_PASSWORD | docker login -u yoon11 --password-stdin"
-                    env:
-                      DOCKER_PASSWORD: "{{SECRET:[dummy-secret][DOCKER_HUB_PASSWORD]}}"
+                      - "echo DOCKER_HUB_PASSWORD | docker login -u yoon11 --password-stdin"
 #                - exec:
 #                    command: docker
 #                    arguments:
