@@ -8,9 +8,9 @@ pipelines:
           version: 1.3.5
         options:
           url: "git@github.com:yoon-youngjin/dummy.git"
-          base_branch: "main"
-          filter:
-            state: open
+          branch: main
+#          filter:
+#            state: open
     stages:
       - test:
           jobs:
