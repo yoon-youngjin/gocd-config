@@ -14,3 +14,38 @@ pipelines:
                     command: ./gradlew
                     arguments:
                       - test
+  build:
+    group: dummy
+    materials:
+      source:
+        git: https://github.com/yoon-youngjin/dummy
+        branch: main
+    stages:
+      - build:
+          jobs:
+            build-and-push-docker:
+              tasks:
+                - exec:
+                    command: ./gradlew
+                    arguments:
+                      - build
+                - exec:
+                    command: docker
+                    arguments:
+                      - build
+                      - "-t"
+                      - "dummy:latest"
+                      - "."
+#                - exec:
+#                    command: docker
+#                    arguments:
+#                      - login
+#                      - "-u"
+#                      - "yourdockerhubid"
+#                      - "-p"
+#                      - "your-dockerhub-access-token"
+#                - exec:
+#                    command: docker
+#                    arguments:
+#                      - push
+#                      - "yourdockerhubid/your-image-name:latest"
