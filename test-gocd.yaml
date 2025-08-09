@@ -9,6 +9,8 @@ pipelines:
         options:
           url: "git@github.com:yoon-youngjin/dummy.git"
           branch: main
+          filter:
+            state: open
     stages:
       - test:
           jobs:
