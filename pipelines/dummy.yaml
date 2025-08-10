@@ -48,3 +48,26 @@ pipelines:
                     arguments:
                       - push
                       - "yoon11/dummy:latest"
+  deploy:
+    group: dummy
+    materials:
+      upstream:
+        pipeline: build
+        stage: build
+    stages:
+      - deploy:
+          approval:
+            type: manual
+            allow_only_on_success: true
+          jobs:
+            deploy:
+              tasks:
+                - exec:
+                    command: /bin/bash
+                    arguments:
+                      - "-c"
+                      - |
+                        git clone -b main https://github.com/yoon-youngjin/gocd-config.git
+                        
+                        kubectl apply -f gocd-config/dummy/deployment.yaml
+                        kubectl apply -f gocd-config/dummy/service.yaml
