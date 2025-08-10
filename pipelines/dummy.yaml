@@ -1,6 +1,7 @@
 pipelines:
   test:
     group: dummy
+    label_template: ${COUNT}-${dummy[:10]}
     materials:
       dummy:
         git: https://github.com/yoon-youngjin/dummy
@@ -16,10 +17,11 @@ pipelines:
                       - test
   build:
     group: dummy
+    label_template: ${COUNT}-${dummy[:10]}
     environment_variables:
       DOCKER_HUB_PASSWORD: "{{SECRET:[dummy-secret][DOCKER_HUB_PASSWORD]}}"
     materials:
-      source:
+      dummy:
         git: https://github.com/yoon-youngjin/dummy
         branch: main
     stages:
@@ -50,6 +52,7 @@ pipelines:
                       - "yoon11/dummy:latest"
   deploy:
     group: dummy
+    label_template: ${UPSTREAM}
     materials:
       upstream:
         pipeline: build
