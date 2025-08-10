@@ -78,4 +78,6 @@ pipelines:
                         --set version=${GO_PIPELINE_LABEL} \
                         > deploy.yaml
                         
+                        cat deploy.yaml
+                        
                         kubectl apply -n test -f deploy.yaml
