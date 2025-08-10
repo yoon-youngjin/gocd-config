@@ -45,10 +45,11 @@ pipelines:
                       - "-c"
                       - "echo $DOCKER_HUB_PASSWORD | docker login -u yoon11 --password-stdin"
                 - exec:
-                    command: docker
+                    command: /bin/bash
                     arguments:
-                      - push
-                      - "yoon11/dummy:latest"
+                      - -c
+                      - |
+                        yoon11/dummy:${GO_PIPELINE_LABEL}
   deploy:
     group: dummy
     label_template: ${UPSTREAM}
