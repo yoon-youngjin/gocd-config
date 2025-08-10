@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: dummy
-          image: "yoon11/dummy:{{ .Values.image.tag }}"
+          image: "yoon11/dummy:{{ .Values.version }}"
           ports:
             - containerPort: 8080
