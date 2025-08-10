@@ -69,5 +69,5 @@ pipelines:
                       - |
                         git clone -b main https://github.com/yoon-youngjin/gocd-config.git
                         
-                        kubectl apply -f gocd-config/dummy/deployment.yaml
-                        kubectl apply -f gocd-config/dummy/service.yaml
+                        kubectl apply -n test -f gocd-config/dummy/deployment.yaml 
+                        kubectl apply -n test -f gocd-config/dummy/service.yaml
