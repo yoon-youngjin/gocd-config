@@ -34,12 +34,11 @@ pipelines:
                     arguments:
                       - build
                 - exec:
-                    command: docker
+                    command: /bin/bash
                     arguments:
-                      - build
-                      - "-t"
-                      - "yoon11/dummy:latest"
-                      - "."
+                      - -c
+                      - |
+                        docker build -t yoon11/dummy:${GO_PIPELINE_LABEL} .
                 - exec:
                     command: /bin/bash
                     arguments:
