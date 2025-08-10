@@ -49,7 +49,7 @@ pipelines:
                     arguments:
                       - -c
                       - |
-                        yoon11/dummy:${GO_PIPELINE_LABEL}
+                        docker push yoon11/dummy:${GO_PIPELINE_LABEL}
   deploy:
     group: dummy
     label_template: ${UPSTREAM}
