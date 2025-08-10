@@ -72,5 +72,10 @@ pipelines:
                       - |
                         git clone -b main https://github.com/yoon-youngjin/gocd-config.git
                         
-                        kubectl apply -n test -f gocd-config/dummy/deployment.yaml 
-                        kubectl apply -n test -f gocd-config/dummy/service.yaml
+                        helm template \
+                        gocd-config/dummy \
+                        -f gocd-config/dummy/values.yaml \
+                        --set version=${GO_PIPELINE_LABEL} \
+                        > deploy.yaml
+                        
+                        kubectl apply -n test -f deploy.yaml
